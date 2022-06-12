@@ -1,6 +1,7 @@
 from django.contrib import admin
+from django.contrib.auth.admin import UserAdmin
 
-from .models import Product, CustomUser
+from .models import Product, CustomUser, ProductRating
 
 
 @admin.register(Product)
@@ -13,6 +14,13 @@ class ProductAdmin(admin.ModelAdmin):
 
 
 @admin.register(CustomUser)
-class CustomUserAdmin(admin.ModelAdmin):
+class CustomUserAdmin(UserAdmin):
     model = CustomUser
     list_display = ['email', 'username']
+
+
+@admin.register(ProductRating)
+class ProductRatingAdmin(admin.ModelAdmin):
+    model = ProductRating
+    list_display = ['product', 'user', 'star_rating']
+    list_filter = ['product', 'user', 'star_rating']

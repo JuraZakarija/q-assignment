@@ -21,4 +21,3 @@ urlpatterns = [
     path('api/', include('products.urls')),
     path('api-auth/', include('rest_framework.urls')),
 ]
-
