@@ -7,7 +7,9 @@ from django.db.models import Avg
 class Product(models.Model):
     name = models.CharField(max_length=255, unique=True)
     price = models.DecimalField(max_digits=15, decimal_places=2)
-    rating = models.FloatField(
+    rating = models.DecimalField(
+        max_digits=3,
+        decimal_places=2,
         validators=[MinValueValidator(0), MaxValueValidator(5)], default=0
     )
     updated_at = models.DateTimeField(auto_now=True, blank=True)

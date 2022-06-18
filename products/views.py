@@ -1,6 +1,6 @@
 from rest_framework.decorators import action
 from rest_framework.viewsets import ModelViewSet, GenericViewSet
-from rest_framework.filters import OrderingFilter
+from rest_framework.filters import OrderingFilter, SearchFilter
 from rest_framework.response import Response
 from rest_framework import status
 from rest_framework.mixins import (
@@ -15,8 +15,9 @@ from .serializers import (
 class ProductViewSet(ModelViewSet):
     serializer_class = ProductSerializer
     queryset = Product.objects.all()
-    filter_backends = [OrderingFilter]
+    filter_backends = [OrderingFilter, SearchFilter]
     ordering_fields = ['id', 'name', 'price', 'rating', 'updated_at']
+    search_fields = ['id', '@name', 'price', 'rating', 'updated_at']
 
     @action(detail=False, methods=['post'], url_path='rate-product')
     def rate_product(self, request, pk=None):
