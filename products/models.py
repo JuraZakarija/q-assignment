@@ -10,7 +10,8 @@ class Product(models.Model):
     rating = models.DecimalField(
         max_digits=3,
         decimal_places=2,
-        validators=[MinValueValidator(0), MaxValueValidator(5)], default=0
+        default=0,
+        validators=[MinValueValidator(0), MaxValueValidator(5)],
     )
     updated_at = models.DateTimeField(auto_now=True, blank=True)
 
@@ -37,7 +38,7 @@ class ProductRating(models.Model):
         (5, "★★★★★"),
     )
 
-    product = models.ForeignKey(Product, on_delete=models.CASCADE)
+    product = models.ForeignKey(Product, related_name='ratings', on_delete=models.CASCADE)
     user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
     star_rating = models.PositiveIntegerField(choices=RATING_CHOICES)
 

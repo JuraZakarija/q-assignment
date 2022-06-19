@@ -24,3 +24,8 @@ class ProductRatingAdmin(admin.ModelAdmin):
     model = ProductRating
     list_display = ['product', 'user', 'star_rating']
     list_filter = ['product', 'user', 'star_rating']
+    actions = ['delete_selected']
+
+    def delete_selected(self, request, obj):
+        for o in obj.all():
+            o.delete()

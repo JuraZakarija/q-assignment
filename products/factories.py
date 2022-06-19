@@ -1,5 +1,5 @@
 from faker import Faker
-from factory import LazyFunction
+from factory import LazyFunction, PostGenerationMethodCall
 from factory.fuzzy import FuzzyDecimal
 from factory.django import DjangoModelFactory
 
@@ -22,4 +22,4 @@ class UserFactory(DjangoModelFactory):
 
     username = LazyFunction(fake.user_name)
     email = LazyFunction(fake.email)
-    password = 'testing321'
+    password = PostGenerationMethodCall('set_password', 'testing321')
