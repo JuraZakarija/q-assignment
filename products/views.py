@@ -16,7 +16,7 @@ class ProductViewSet(ModelViewSet):
     queryset = Product.objects.all()
     filter_backends = [OrderingFilter, SearchFilter]
     ordering_fields = ['id', 'name', 'price', 'rating', 'updated_at']
-    search_fields = ['id', '@name', 'price', 'rating', 'updated_at']
+    search_fields = ['id', 'name', 'price', 'rating', 'updated_at']
 
     @action(detail=True, methods=['post'], url_path='rate-product')
     def rate_product(self, request, pk=None):
