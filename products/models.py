@@ -38,7 +38,11 @@ class ProductRating(models.Model):
         (5, "★★★★★"),
     )
 
-    product = models.ForeignKey(Product, related_name='ratings', on_delete=models.CASCADE)
+    product = models.ForeignKey(
+        Product,
+        related_name='ratings',
+        on_delete=models.CASCADE
+    )
     user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
     star_rating = models.PositiveIntegerField(choices=RATING_CHOICES)
 
@@ -57,7 +61,8 @@ class ProductRating(models.Model):
 
     def delete(self, *args, **kwargs):
         rated_product = Product.objects.get(pk=self.product.pk)
-        ratings = ProductRating.objects.filter(product=rated_product).exclude(id=self.id)
+        ratings = ProductRating.objects.filter(
+            product=rated_product).exclude(id=self.id)
 
         # default rating set to 0 if there are no ratings left
         average_rating = {'r': 0}
