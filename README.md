@@ -16,7 +16,7 @@ create file .env in base directory and copy content from .env.tpl \
 > sudo docker-compose build \
 > docker-compose up
 
-## Without Docker - primary way
+## Without Docker - alternate way
 
 go to config/settings.py and uncomment sqlite database \
 use command line to navigate to base folder \ 
