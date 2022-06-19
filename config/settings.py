@@ -85,26 +85,26 @@ WSGI_APPLICATION = 'config.wsgi.application'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
 # SQLITE uncomment this when running outside docker
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
 
 # PostgreSQL, uncomment this when running inside docker
 # In here for simplicity, should be in env
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#         'NAME': 'postgres',
-#         'USER': 'postgres',
-#         'PASSWORD': 'postgres',
-#         'HOST': 'db',
-#         'PORT': '5432',
-#     }
-# }
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'postgres',
+        'USER': 'postgres',
+        'PASSWORD': 'postgres',
+        'HOST': 'db',
+        'PORT': '5432',
+    }
+}
 
 
 # Password validation
