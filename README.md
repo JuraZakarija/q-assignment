@@ -7,9 +7,9 @@ Python 3.9+ on local machine
 
 
 ## Setup
-clone repo in desired folder
+clone repo in desired folder \
 create file .env in base directory and copy content from .env.tpl \
-change SECRET_KEY if you want to
+change SECRET_KEY
 
 ## With Docker - primary way
 create file .env in base directory and copy content from .env.tpl \
@@ -53,3 +53,13 @@ admin login:
 
 swagger docs: http://localhost:8000/api/schema/swagger-ui/ \
 redoc docs: http://localhost:8000/api/schema/redoc/
+
+## Features
+CRUD endpoints for products and product ratings \
+Basic and JWT auth \
+Listing pagination \
+Dummy data generation \
+Automatic documentation with Swagger and Redoc \
+Unit tests \
+Full text search when using Postgres \
+Dockerized environment
